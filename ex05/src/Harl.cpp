@@ -6,13 +6,14 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/24 17:22:51 by jensbouma     #+#    #+#                 */
-/*   Updated: 2024/02/24 17:39:13 by jensbouma     ########   odam.nl         */
+/*   Updated: 2024/02/27 09:23:44 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 Harl::Harl() {
+    this->_message = "This debug message we dont have to set in the exercise";
     return ;
 }
 
@@ -36,9 +37,23 @@ void Harl::error() {
     std::cout << "Error: " << _message << std::endl;
 }
 
-// Use string level input to call the correct function with converting the pointer to the function
-void Harl::complain( std::string level ) {
-    std::string *p = &level;
-    
-    // (this->*p)();
+void Harl::set_message(std::string message) {
+    _message = message;
+}
+
+void Harl::complain(std::string level) {
+    void (Harl::*p)();
+
+    // Create a map with the member functions
+    std::map<std::string, void (Harl::*)()> functionMap;
+    functionMap["debug"] = &Harl::debug;
+    functionMap["info"] = &Harl::info;
+    functionMap["warning"] = &Harl::warning;
+    functionMap["error"] = &Harl::error;
+
+    // Find the corresponding member function based on the level
+    p = functionMap[level];
+
+    // Call the private member function
+    (this->*p)();
 }
