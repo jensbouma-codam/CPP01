@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/24 15:10:08 by jensbouma     #+#    #+#                 */
-/*   Updated: 2024/02/24 15:36:42 by jensbouma     ########   odam.nl         */
+/*   Updated: 2024/09/24 13:44:50 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ Zombie::Zombie() {
 }
 
 Zombie::~Zombie() {
-    std::cout << this->_name << " has been destroyed" << std::endl;
+    std::cout << this->_name << ": has been destroyed" << std::endl;
     return;
 }
 
 void Zombie::announce() {
-    std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 void Zombie::setName(std::string name) {

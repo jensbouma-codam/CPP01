@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/27 09:07:00 by jensbouma     #+#    #+#                 */
-/*   Updated: 2024/02/27 11:35:04 by jensbouma     ########   odam.nl         */
+/*   Updated: 2024/09/24 16:32:32 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int main(int argc, char **argv) {
 
     harl.complain("debug");
     harl.complain("info");
+    harl.complain("warning");
+    harl.complain("warning");
     harl.complain("warning");
     harl.complain("error");
     return 0;

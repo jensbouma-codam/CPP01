@@ -6,14 +6,15 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/24 16:29:58 by jensbouma     #+#    #+#                 */
-/*   Updated: 2024/02/24 17:13:16 by jensbouma     ########   odam.nl         */
+/*   Updated: 2024/09/24 16:12:03 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FileHandler.hpp"
 
 FileHandler::FileHandler(std::string fileName) : _fileName(fileName) {
-    std::ifstream file(fileName);
+
+    std::ifstream file(fileName);    
     if (file.is_open()) {
         std::string line;
         while (std::getline(file, line)) {

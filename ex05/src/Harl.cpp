@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/24 17:22:51 by jensbouma     #+#    #+#                 */
-/*   Updated: 2024/02/27 09:23:44 by jensbouma     ########   odam.nl         */
+/*   Updated: 2024/09/24 16:27:34 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,12 @@ void Harl::complain(std::string level) {
     functionMap["warning"] = &Harl::warning;
     functionMap["error"] = &Harl::error;
 
-    // Find the corresponding member function based on the level
-    p = functionMap[level];
+    p = functionMap[level];    
 
+    if (p == NULL) {
+        std::cout << "Invalid log level" << std::endl;
+        return ;
+    }
     // Call the private member function
     (this->*p)();
 }

@@ -6,7 +6,7 @@
 /*   By: jensbouma <jensbouma@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/02/24 15:06:06 by jensbouma     #+#    #+#                 */
-/*   Updated: 2024/02/24 15:43:36 by jensbouma     ########   odam.nl         */
+/*   Updated: 2024/09/24 14:45:59 by jensbouma     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ class Zombie {
         void announce ();
         void setName (std::string name);
 };
-
-Zombie* zombieHorde(int N, std::string name);
 
 #endif

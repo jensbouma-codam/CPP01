@@ -1,16 +1,28 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: jensbouma <jensbouma@student.codam.nl>       +#+                      #
+#                                                    +#+                       #
+#    Created: 2024/09/24 13:32:25 by jensbouma     #+#    #+#                  #
+#    Updated: 2024/09/24 13:39:19 by jensbouma     ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
 # Program variables
-NAME		= zombie
+NAME		= bin/zombie
 FILES		= Zombie.cpp		\
 			  newZombie.cpp		\
 			  randomChump.cpp 	\
 			  main.cpp
 INC_DIR		= -I include
+
 # Compilation variables
 SRC_DIR		= src
 BUILD_DIR	= build
-TARGET		= bin
 CC			= g++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -std=c++20
 SRC			= $(addprefix $(SRC_DIR)/, $(FILES))
 OBJECTS		= $(SRC:%.cpp=$(BUILD_DIR)/%.o)
 
@@ -18,8 +30,8 @@ OBJECTS		= $(SRC:%.cpp=$(BUILD_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	@mkdir -p $(TARGET)
-	@$(CC) $(CFLAGS) $(LIBS) $(INC_DIR) -o $(TARGET)/$@ $^
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(LIBS) $(INC_DIR) -o $@ $^ && echo $@ "succesful created"
 
 $(BUILD_DIR)/%.o:%.cpp
 	@mkdir -p $(dir $@)
@@ -33,7 +45,7 @@ clean:
 	@rm -rf $(BUILD_DIR)
 
 fclean: clean
-	@rm -rf $(TARGET)
+	@rm -rf $(dir $(NAME))
 
 re: fclean all
 
